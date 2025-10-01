@@ -49,7 +49,6 @@ const CreateMealPlan = () => {
     };
 
     try {
-      console.log("Submitting meal plan:", payload);
       await createMealPlan(payload).unwrap();
       navigate("/dashboard");
       refetch();

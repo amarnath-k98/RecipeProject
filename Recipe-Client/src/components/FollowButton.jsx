@@ -34,7 +34,6 @@ const FollowButton = ({
         onFollowSuccess?.();
       }
     } catch (err) {
-      console.error("Follow/Unfollow failed:", err);
       const msg = err?.data?.message;
 
       if (msg === "Already following this user") {

@@ -42,7 +42,6 @@ const CreateRecipe = () => {
     };
 
     try {
-      console.log("Submitting recipe:", payload);
       await createRecipe(payload).unwrap();
       navigate("/dashboard", { replace: true });
     } catch (err) {

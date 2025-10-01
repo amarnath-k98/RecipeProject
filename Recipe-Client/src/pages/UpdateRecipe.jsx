@@ -67,7 +67,6 @@ const UpdateRecipe = () => {
     });
     try {
       await updateRecipe({ id, ...payload }).unwrap();
-      console.log("Updated recipe:", recipe);
       refetch();
       navigate(`/recipes/${id}`);
     } catch (err) {

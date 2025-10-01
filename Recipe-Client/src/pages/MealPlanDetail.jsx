@@ -26,9 +26,6 @@ const MealPlanDetail = () => {
   const plan = planData?.plan;
   const isOwner =
     plan?.user === currentUserId || plan?.user?._id === currentUserId;
-  console.log("Meal Plan:", plan);
-  console.log("Selected Recipe IDs:", plan?.selectedRecipes);
-  console.log("Fetched Recipes:", recipeData?.recipes);
 
  const selectedRecipes = (() => {
    if (!Array.isArray(plan?.days) || !Array.isArray(recipeData?.recipes))

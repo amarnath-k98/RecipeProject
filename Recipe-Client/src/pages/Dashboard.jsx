@@ -14,7 +14,6 @@ const Dashboard = () => {
     );
   const { user, recipes, mealPlans } = data;
   
-  console.log("Dashboard recipes:", data?.user?.recipes);
     
   return (
     <>

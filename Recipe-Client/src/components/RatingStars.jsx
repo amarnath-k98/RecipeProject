@@ -1,7 +1,6 @@
 import React from 'react'
 
 const RatingStars = ({ rating, onRate }) => {
-    console.log("RatingStars props:", { rating, onRate });
   return (
     <div className="flex gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
