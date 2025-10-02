@@ -49,6 +49,9 @@ const UsersPage = () => {
                   <img
                     src={user.avatar || Dummy_Person}
                     alt={user.name}
+                    onError={(e) => {
+                      e.target.src = Dummy_Person;
+                    }}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
