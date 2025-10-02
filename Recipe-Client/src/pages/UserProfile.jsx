@@ -8,6 +8,7 @@ import {
 import Loading from "../components/Loading";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../slices/authSlice";
+import Dummy_Person from "../assets/Dummy_Person.jpg";
 
 const UserProfile = () => {
   const { id } = useParams();
@@ -39,7 +40,6 @@ const UserProfile = () => {
     );
 
   const isOwnProfile = user._id === currentUserId;
-    
 
   const handleDeleteAccount = async () => {
     if (!window.confirm("Are you sure you want to delete your account?"))
@@ -63,8 +63,11 @@ const UserProfile = () => {
           {user.avatar && (
             <div className="flex justify-center mb-4">
               <img
-                src={user.avatar}
+                src={user.avatar || Dummy_Person}
                 alt={`${user.name}'s avatar`}
+                onError={(e) => {
+                  e.target.src = Dummy_Person;
+                }}
                 className="w-24 h-24 rounded-full object-cover border"
               />
             </div>
@@ -100,8 +103,6 @@ const UserProfile = () => {
             )}
           </div>
         </section>
-
-        
       </div>
     </div>
   );
