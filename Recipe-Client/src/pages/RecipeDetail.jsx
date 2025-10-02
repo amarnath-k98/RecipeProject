@@ -13,6 +13,7 @@ import Loading from "../components/Loading";
 import CommentList from "../components/CommentList";
 import CommentBox from "../components/CommentBox";
 import RecipeActions from "../components/RecipeActions";
+import Recipe_image from "../assets/Recipe_image.jpg";
 
 const RecipeDetail = () => {
   const { id: recipeId } = useParams();
@@ -109,9 +110,9 @@ const RecipeDetail = () => {
       <h1 className="text-2xl sm:text-3xl font-bold mb-4">{recipe.title}</h1>
 
       <img
-        src={recipe.image || "/Recipe_image.jpg"}
+        src={recipe.image || Recipe_image}
         alt={recipe.title}
-        className="w-full h-64 object-cover rounded mb-6"
+        className="w-full h-64 object-contain rounded mb-6"
       />
 
       <div className="flex flex-col gap-4 mb-6">
@@ -172,9 +173,7 @@ const RecipeDetail = () => {
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-2">Preparation Steps</h2>
         <p className="text-sm sm:text-base whitespace-pre-line">
-          {Array.isArray(recipe.steps)
-            ? recipe.steps.join("\n")
-            : recipe.steps}
+          {Array.isArray(recipe.steps) ? recipe.steps.join("\n") : recipe.steps}
         </p>
       </div>
 

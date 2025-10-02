@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Recipe_image from "../assets/Recipe_image.jpg";
+
 
 const RecipeCard = ({ recipe, readOnly = false }) => {
 
@@ -8,14 +10,14 @@ const RecipeCard = ({ recipe, readOnly = false }) => {
     <div className="bg-gray-400 rounded-lg shadow-lg shadow-gray-600 overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {readOnly ? (
         <img
-          src={recipe.image || "/Recipe_image.jpg"}
+          src={recipe.image || Recipe_image}
           alt={recipe.title}
           className="w-full h-48 object-cover sm:h-56 md:h-64"
         />
       ) : (
         <Link to={`/recipes/${recipe._id}`}>
           <img
-            src={recipe.image || "/Recipe_image.jpg"}
+            src={recipe.image || Recipe_image}
             alt={recipe.title}
             className="w-full h-48 object-cover sm:h-56 md:h-64"
           />

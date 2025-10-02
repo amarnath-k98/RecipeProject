@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useGetAllUsersQuery, useGetProfileQuery } from "../slices/apiSlice";
 import Loading from "../components/Loading";
 import FollowButton from "../components/FollowButton";
+import Dummy_Person from "../assets/Dummy_Person.jpg";
 
 const UsersPage = () => {
   const { data: userData, isLoading } = useGetAllUsersQuery();
@@ -40,33 +41,32 @@ const UsersPage = () => {
             <Loading message="Loading users..." />
           ) : filteredUsers.length > 0 ? (
             <div className="flex flex-col  sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredUsers
-                .map((user) => (
-                  <div
-                    key={user._id}
-                    className="bg-gray-100 shadow-md shadow-gray-500 rounded-lg p-4 flex items-center gap-4"
-                  >
-                    <img
-                      src={user.avatar || "/Dummy_Person.jpg"}
-                      alt={user.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <h3 className="font-semibold">{user.name}</h3>
-                      <p className="text-sm text-gray-600">
-                        {user.bio || "No bio yet."}
-                      </p>
-                    </div>
-                    <div className="mt-2">
-                      <FollowButton
-                        targetId={user._id}
-                        isFollowing={user.isFollowing}
-                        onFollowSuccess={refetch}
-                        onUnfollowSuccess={refetch}
-                      />
-                    </div>
+              {filteredUsers.map((user) => (
+                <div
+                  key={user._id}
+                  className="bg-gray-100 shadow-md shadow-gray-500 rounded-lg p-4 flex items-center gap-4"
+                >
+                  <img
+                    src={user.avatar || Dummy_Person}
+                    alt={user.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h3 className="font-semibold">{user.name}</h3>
+                    <p className="text-sm text-gray-600">
+                      {user.bio || "No bio yet."}
+                    </p>
                   </div>
-                ))}
+                  <div className="mt-2">
+                    <FollowButton
+                      targetId={user._id}
+                      isFollowing={user.isFollowing}
+                      onFollowSuccess={refetch}
+                      onUnfollowSuccess={refetch}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           ) : (
             <p>No users found.</p>
