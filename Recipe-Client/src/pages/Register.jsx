@@ -69,7 +69,7 @@ const Register = () => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Password (min 6 characters)"
           value={formData.password}
           onChange={handleChange}
           required
